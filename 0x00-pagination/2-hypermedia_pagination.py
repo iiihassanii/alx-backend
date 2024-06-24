@@ -58,4 +58,32 @@ class Server:
 
         if set_range[0] > len(self.__dataset):
             return []
-        return self.__dataset[set_range[0]:set_range[1]]
+        return [self.__dataset[set_range[0]:set_range[1]]]
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """_summary_
+
+        Args:
+            page (int, optional): _description_. Defaults to 1.
+            page_size (int, optional): _description_. Defaults to 10.
+
+        Returns:
+            _type_: _description_
+        """
+        data = self.get_page(page, page_size)
+        dataset_len = len(self.dataset())
+        total_pages = math.ceil(dataset_len / page_size)
+
+        next_page = page + 1 if page < total_pages else None
+        prev_page = page - 1 if page > 1 else None
+
+        hyper_dict = {
+            'page_size': len(data),
+            'page': page,
+            'data': data,
+            'next_page': next_page,
+            'prev_page': prev_page,
+            'total_pages': total_pages
+        }
+
+        return hyper_dict
