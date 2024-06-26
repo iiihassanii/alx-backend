@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-""" BasicCache module"""
+""" FIFOCache module"""
 
 
 from base_caching import BaseCaching
 
 
-class BasicCache(BaseCaching):
-    """caching system that inherits from BaseCaching"""
+class FIFOCache(BaseCaching):
+    """FIFOCache
+
+    Args:
+        BaseCaching (_type_): _description_
+    """
 
     def __init__(self):
-        """_summary_
+        """__init__
         """
         super().__init__()
 
@@ -19,6 +23,9 @@ class BasicCache(BaseCaching):
             key (_type_): _description_
             item (_type_): _description_
         """
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            first_key = list(self.cache_data.keys())[0]
+            self.cache_data.pop(first_key)
         if key is not None and item is not None:
             self.cache_data[key] = item
 
