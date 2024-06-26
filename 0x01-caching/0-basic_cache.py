@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-""" 0-main """
+""" BasicCache module"""
 
 
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """
-    Args:
-        BaseCaching (_type_): _description_
-    """
+    """caching system that inherits from BaseCaching"""
 
     def __init__(self):
         """_summary_
@@ -24,7 +21,7 @@ class BasicCache(BaseCaching):
             item (_type_): _description_
         """
         if key is None or item is None:
-            return
+            pass
         self.cache_data[key] = item
 
     def get(self, key):
