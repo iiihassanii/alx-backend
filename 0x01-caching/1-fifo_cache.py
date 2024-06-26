@@ -23,11 +23,12 @@ class FIFOCache(BaseCaching):
             key (_type_): _description_
             item (_type_): _description_
         """
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+        if key is None or item is None:
+            return
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             first_key = list(self.cache_data.keys())[0]
             self.cache_data.pop(first_key)
-        if key is not None and item is not None:
-            self.cache_data[key] = item
+        self.cache_data[key] = item
 
     def get(self, key):
         """ return the value in self.cache_data linked to key
