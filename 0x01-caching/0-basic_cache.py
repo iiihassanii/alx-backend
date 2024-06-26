@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """ 0-main """
-BaseCaching = __import__('BaseCaching').BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):
     """
-
-
     Args:
         BaseCaching (_type_): _description_
     """
