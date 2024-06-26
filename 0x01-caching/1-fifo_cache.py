@@ -18,7 +18,8 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """assign to the dictionary self.cache_data the item value for the key key
+        """assign to the dictionary self.cache_data
+          the item value for the key key
         Args:
             key (_type_): _description_
             item (_type_): _description_
