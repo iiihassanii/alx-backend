@@ -23,7 +23,7 @@ class BasicCache(BaseCaching):
             key (_type_): _description_
             item (_type_): _description_
         """
-        if key == None or item == None:
+        if key is None or item is None:
             return
         self.cache_data[key] = item
 
@@ -36,6 +36,6 @@ class BasicCache(BaseCaching):
         Returns:
             _type_: _description_
         """
-        if key == None:
+        if key is None:
             return None
         return self.cache_data.get(key)
