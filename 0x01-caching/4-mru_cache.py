@@ -32,9 +32,9 @@ class MRUCache(BaseCaching):
             self.cache_data.move_to_end(key)
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            first_key = list(self.cache_data.keys())[-2]
-            print('DISCARD: ' + str(first_key))
-            self.cache_data.pop(first_key)
+            last_key = list(self.cache_data.keys())[-2]
+            print('DISCARD: ' + str(last_key))
+            self.cache_data.pop(last_key)
 
     def get(self, key):
         """ return the value in self.cache_data linked to key
