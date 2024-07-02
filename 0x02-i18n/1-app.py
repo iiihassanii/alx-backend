@@ -27,7 +27,7 @@ def index() -> str:
     Returns:
         _type_: _description_
     """
-    pass
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
