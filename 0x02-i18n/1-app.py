@@ -21,7 +21,7 @@ babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
-def index() -> str:
+def get_index():
     """_summary_
 
     Returns:
