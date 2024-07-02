@@ -2,16 +2,33 @@
 """_summary_
         """
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_babel import Babel
-app = Flask(__name__)
-babel = Babel(app)
 
 
 class Config:
-    LANGUAGES = ["en", "fr"]
+    """_summary_
+        """
+    LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-@app.route('/')
+app = Flask(__name__)
+app.config.from_object(Config)
+
+babel = Babel(app)
+
+
+@app.route('/', strict_slashes=False)
 def index():
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     pass
+
+
+if __name__ == '__main__':
+    app.run()
