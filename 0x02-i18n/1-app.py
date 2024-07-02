@@ -1,14 +1,11 @@
-#!/usr/bin/env python3
-"""_summary_
-        """
-
 from flask import Flask, render_template
-from flask_babel import Babel
+from flask_babel import Babel, _
+import os
 
 
 class Config:
     """_summary_
-        """
+    """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -16,11 +13,12 @@ class Config:
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
 babel = Babel(app)
 
 
-@app.route('/', strict_slashes=False)
-def get_index():
+@app.route('/')
+def index():
     """_summary_
 
     Returns:
@@ -30,4 +28,4 @@ def get_index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
